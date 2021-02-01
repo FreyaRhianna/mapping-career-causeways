@@ -2,7 +2,7 @@ import urllib.request
 import os
 import zipfile
 import sys
-
+import requests
 """
 Usage
 -----
@@ -48,4 +48,10 @@ else:
     print(f'Extracting the archive in {directory_to_extract_to}...', end=' ')
     with zipfile.ZipFile(path_to_zip_file, 'r') as zip_ref:
         zip_ref.extractall(directory_to_extract_to)
+
+    #Get title mapping
+    URL = "https://raw.githubusercontent.com/FreyaRhianna/public_dataset/main/Annual_Labour_Force_Survey_To_Esco_Occupation_Map.csv"
+    DOWNLOAD_PATH = os.path.join( os.getcwd(),'processed/Annual_Labour_Force_Survey_To_Esco_Occupation_Map.csv')
+    urllib.request.urlretrieve(URL,DOWNLOAD_PATH)
+
     print('Done!')

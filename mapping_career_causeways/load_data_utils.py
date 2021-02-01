@@ -59,6 +59,7 @@ class Data:
         self._top_occ_ids = None
         self._occ_report = None
         self._report_occ_ids = None
+        self._occupation_map = None
 
     ### Helper functions
     def read_csv(self, path):
@@ -163,6 +164,12 @@ class Data:
         if self._occupation_to_skills is None:
             self._occupation_to_skills = self.read_csv(self.dir + 'ESCO_occupation_to_skills.csv')
         return self._occupation_to_skills
+
+    @property
+    def occupation_map(self):
+        if self._occupation_map is None:
+            self._occupation_map = self.read_csv(self.dir+'Annual_Labour_Force_Survey_To_Esco_Occupation_Map.csv')
+        return self._occupation_map
 
     @property
     def node_to_essential_items(self):
