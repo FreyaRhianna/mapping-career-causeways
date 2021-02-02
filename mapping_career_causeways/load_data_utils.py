@@ -171,6 +171,9 @@ class Data:
             self._occupation_map = self.read_csv(self.dir+'Annual_Labour_Force_Survey_To_Esco_Occupation_Map.csv')
         return self._occupation_map
 
+    def regional_occupation_rates(self, fileName):
+        return self.read_csv(self.dir+ fileName + '.csv')
+
     @property
     def node_to_essential_items(self):
         """
